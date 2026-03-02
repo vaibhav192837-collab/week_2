@@ -23,7 +23,7 @@ def update_task(
     """PUT /tasks/{id}: Fully updates an existing task. Requires all fields."""
     updated = task_service.update_task(task_id, task)
     if not updated:
-        raise HTTPException(
+        raise HTTPException( 
             status_code=status.HTTP_404_NOT_FOUND, 
             detail=f"Task with ID {task_id} not found"
         )
