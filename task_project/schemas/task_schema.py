@@ -1,18 +1,11 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
-class TaskCreate(BaseModel):
-    """Schema for creating a new task."""
-    title: str = Field(..., min_length=1, max_length=100, description="The title of the task")
-    description: str | None = Field(default=None, description="Optional details about the task")
-
-class TaskResponse(TaskCreate):
-    """Schema for returning a task to the user."""
-    id: int
+# What the user types in
+class Task(BaseModel):
+    title: str
+    description: str | None = None
     completed: bool = False
 
-class TaskUpdate(BaseModel):
-    """Schema for partially updating an existing task."""
-    title: str | None = Field(default=None, min_length=1, max_length=100)
-    description: str | None = Field(default=None)
-    completed: bool | None = Field(default=None)
-    
+# What we send back to them
+class TaskWithID(Task):
+    id: int
