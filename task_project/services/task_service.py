@@ -1,10 +1,10 @@
 from schemas.task_schema import Task, TaskWithID
 
-fake_db: dict[int, TaskWithID] = {}
+db: dict[int, TaskWithID] = {}
 next_id: int = 1
 
 def get_all():
-    return list(fake_db.values())
+    return list(db.values())
 
 def create(data: Task):
     global next_id
@@ -16,13 +16,13 @@ def create(data: Task):
         completed=data.completed
     )
     
-    fake_db[next_id] = saved_task
+    db[next_id] = saved_task
     next_id += 1
     
     return saved_task
 
 def update(id: int, data: Task):
-    if id not in fake_db:
+    if id not in db:
         return None  
         
     changed_task = TaskWithID(
@@ -32,11 +32,11 @@ def update(id: int, data: Task):
         completed=data.completed
     )
     
-    fake_db[id] = changed_task
+    db[id] = changed_task
     return changed_task
 
 def delete(id: int):
-    if id in fake_db:
-        del fake_db[id]
+    if id in db:
+        del db[id]
         return True
     return False
