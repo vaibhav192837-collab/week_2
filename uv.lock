@@ -163,6 +163,18 @@ wheels = [
 name = "task-project"
 version = "0.1.0"
 source = { virtual = "task_project" }
+dependencies = [
+    { name = "fastapi" },
+    { name = "pydantic" },
+    { name = "uvicorn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastapi" },
+    { name = "pydantic" },
+    { name = "uvicorn" },
+]
 
 [[package]]
 name = "typing-extensions"
