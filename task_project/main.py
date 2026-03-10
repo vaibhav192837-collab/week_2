@@ -6,5 +6,5 @@ app = FastAPI(title="Task Manager API")
 app.include_router(task_router)
 
 @app.get("/")
-def root():
+def welcome():
     return {"message": "Welcome to the Modular Task Manager API!"}

@@ -1,7 +1,11 @@
 [project]
 name = "task-project"
 version = "0.1.0"
-description = "Add your description here"
+description = "A clean, foundational REST API built with FastAPI. This project demonstrates enterprise-grade software architecture using the 'Separation of Concerns' principle, keeping web traffic, data validation, and business logic completely isolated from one another"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "fastapi",
+    "pydantic",
+    "uvicorn"
+]
