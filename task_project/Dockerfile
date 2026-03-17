@@ -13,10 +13,10 @@ COPY pyproject.toml .
 # 5. Install using uv
 RUN uv pip install --system -r pyproject.toml
 
-# 6. Copy Code
+# 6. Copy Code (Copies files from your host machine  to  container image.)
 COPY . .
 
-# 7. Expose Port
+# 7. Expose Port (Documents the port the container listens on. Does not actually publish the port.)
 EXPOSE 8000
 
 # 8. Start Command
